@@ -1,0 +1,13 @@
+server:
+  port: 8761
+
+eureka:
+  instance: 
+    appname: server-register-center
+    #需配置hosts
+    hostname: eureka-server-1
+  client:
+    service-url:
+      defaultZone: http://eureka-server-2:8762/eureka/,http://eureka-server-3:8763/eureka/
+      
+      
