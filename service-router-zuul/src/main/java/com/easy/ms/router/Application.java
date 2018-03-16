@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.easy.ms.router.filter.post.LogFilter;
 import com.easy.ms.router.filter.pre.AuthFilter;
+import com.easy.ms.router.filter.pre.SignValidateFilter;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -25,5 +26,10 @@ public class Application {
     @Bean
     public LogFilter logFilter() {
         return new LogFilter();
+    }
+    
+    @Bean
+    public SignValidateFilter signValidateFilter() {
+        return new SignValidateFilter();
     }
 }
