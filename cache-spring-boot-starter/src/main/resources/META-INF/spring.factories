@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.easy.cache.config.RedisAutoConfiguration,com.easy.cache.config.EhRedisCacheAutoConfiguration
