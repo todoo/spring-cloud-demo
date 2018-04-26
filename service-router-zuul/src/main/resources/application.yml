@@ -4,6 +4,25 @@ server:
 spring:
   application:
     name: app-services-router
+  redis:
+    database: 0
+    host: 10.142.16.186
+    port: 6379
+    password: 123456
+    # \u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4 \u5355\u4F4D ms\uFF08\u6BEB\u79D2\uFF09
+    timeout: 3000
+
+    # \u8FDE\u63A5\u6C60\u4E2D\u7684\u6700\u5927\u7A7A\u95F2\u8FDE\u63A5\uFF0C\u9ED8\u8BA4\u503C\u4E5F\u662F8\u3002
+    pool:
+      max-idle: 8
+      #\u8FDE\u63A5\u6C60\u4E2D\u7684\u6700\u5C0F\u7A7A\u95F2\u8FDE\u63A5\uFF0C\u9ED8\u8BA4\u503C\u4E5F\u662F0\u3002
+      min-idle: 0
+      # \u5982\u679C\u8D4B\u503C\u4E3A-1\uFF0C\u5219\u8868\u793A\u4E0D\u9650\u5236\uFF1B\u5982\u679Cpool\u5DF2\u7ECF\u5206\u914D\u4E86maxActive\u4E2Ajedis\u5B9E\u4F8B\uFF0C\u5219\u6B64\u65F6pool\u7684\u72B6\u6001\u4E3Aexhausted(\u8017\u5C3D)\u3002
+      max-active: 8
+      # \u7B49\u5F85\u53EF\u7528\u8FDE\u63A5\u7684\u6700\u5927\u65F6\u95F4\uFF0C\u5355\u4F4D\u6BEB\u79D2\uFF0C\u9ED8\u8BA4\u503C\u4E3A-1\uFF0C\u8868\u793A\u6C38\u4E0D\u8D85\u65F6\u3002\u5982\u679C\u8D85\u8FC7\u7B49\u5F85\u65F6\u95F4\uFF0C\u5219\u76F4\u63A5\u629B\u51FAJedisConnectionException
+      max-wait: -1
+
+spring.data.mongodb.uri: mongodb://root:root123@10.142.16.188:27017/admin
 
 eureka:
   instance:
@@ -13,7 +32,7 @@ eureka:
     service-url:
        defaultZone: http://eureka-server-1:8761/eureka/
     registry-fetch-interval-seconds: 5
-    enabled: false
+    enabled: true
 
 zuul: 
   ignoredServices: '*'
@@ -24,3 +43,7 @@ zuul:
     api-b:
       path: /api-b/**
       service-id: service-helloworld-feign
+    api-tmp:
+      path: /api-tmp/**
+      service-id: service-template
+  

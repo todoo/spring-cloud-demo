@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 123456
+  pool:
+      maximum-pool-size:  100
+      max-idle: 10
+      max-wait: 10000
+      min-idle: 5
+      initial-size: 5
+      validation-query: SELECT 1
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 18800
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate: 
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect:  org.hibernate.dialect.MySQL5Dialect
+
+# 更多数据源
+
+custom: 
+  datasource:
+    names:  ds1
+    ds1:  
+      driverClassName:  com.mysql.jdbc.Driver
+      url:  jdbc:mysql://localhost:3306/test1
+      username: root
+      password: 123456

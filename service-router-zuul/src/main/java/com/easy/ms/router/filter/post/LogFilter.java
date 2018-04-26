@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.cloud.netflix.zuul.filters.support.ResettableServletInputStreamWrapper;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 
 import com.google.gson.Gson;
@@ -16,6 +17,7 @@ import com.netflix.zuul.context.RequestContext;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Component
 public class LogFilter extends ZuulFilter {
 
     @Override
