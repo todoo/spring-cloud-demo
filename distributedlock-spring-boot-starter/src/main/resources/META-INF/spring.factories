@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.easy.ms.distributedlock.configuration.RedisAutoConfiguration,com.easy.ms.distributedlock.configuration.DistributedLockAutoConfiguration
